@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Inicio juego</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<p>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a id="menu" class="navbar-brand" href="#">Menú</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#about">ABOUT</a></li>
+                <li><a id="tienda_button" href="#about">TIENDA</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">MI PERFIL <span class="caret"></span></a>
+                    <ul class="dropdown-menu d-flex flex-column">
+                        <li class="custom-row-margin"><button id="inicio_buton" type="button" class="btn btn-block w-100 h-100">Iniciar sesión</button></li>
+                        <li class="custom-row-margin"><button id="regis_buton" type="button" class="btn btn-block w-100 h-100">Registrarse</button></li>
+                        <li class="custom-row-margin"><button id="info_buton" type="button" class="btn btn-block w-100 h-100">Mi perfil</button></li>
+                        <li class="custom-row-margin"><button id="edit_buton" type="button" class="btn btn-block w-100 h-100">Editar perfil</button></li>
+                        <li class="custom-row-margin"><button id="borrar_buton" type="button" class="btn btn-block w-100 h-100">Borrar perfil</button></li>
+                        <li class="custom-row-margin"><button id="salir_buton" type="button" class="btn btn-block w-100 h-100">SALIR</button></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<div id="iniciar" class="container-fluid">
+    <div class="container bg-1 text-center">
+        <h3>Operación Rempálago</h3>
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <div class="panel panel-default text-center" >
+                    <div class="panel-heading text-center">
+                        <h4>Iniciar sesión</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group" style="text-align: left">
+                            <label for="usr_ini">Usuario:</label>
+                            <input type="text" class="form" id="usr_ini">
+                        </div>
+                        <div class="form-group" style="text-align: left">
+                            <label for="pwd_ini">Contraseña:</label>
+                            <input type="password" class="form" id="pwd_ini">
+                        </div>
+                        <button id="btnLogin" class="btn btn-success w-100">Iniciar sesión</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="registro" class="container-fluid">
+    <div class="container bg-1 text-center">
+        <h3>Operación Rempálago</h3>
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading text-center">
+                        <h4>Registrarse</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group" style="text-align: left">
+                            <label for="usr_reg">Usuario:</label>
+                            <input type="text" id="usr_reg" name="usr_reg" class="form-control">
+                            <label for="email_reg">Email:</label>
+                            <input type="email" class="form-control" id="email_reg">
+                        </div>
+                        <div class="form-group" style="text-align: left">
+                            <label for="pwd_reg">Contraseña:</label>
+                            <input type="password" class="form-control" id="pwd_reg">
+                        </div>
+                        <button id="btnRegister"class="btn btn-success w-100">Registrarse</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="edit" class="container-fluid bg-1 text-center">
+    <h3>Editar Opciones</h3>
+    <div class="row">
+        <!-- Editar Usuario -->
+        <div id="editar-usuario" class="col-sm-4 col-sm-offset-2">
+            <div class="container-border bg-2 text-center">
+
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading text-center">
+                        <h4>Editar Usuario</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group" style="text-align: left">
+                            <label for="new_usr">Nuevo username:</label>
+                            <input type="text" class="form-control" id="new_usr">
+                        </div>
+                        <div class="form-group" style="text-align: left">
+                            <label for="pwd_edit">Contraseña:</label>
+                            <input type="password" class="form-control" id="pwd_edit">
+                        </div>
+                        <button id="btnEditUser" class="btn btn-primary w-100">Guardar Cambios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Editar Contraseña -->
+        <div id="editar-contrasena" class="col-sm-4">
+            <div class="container-border bg-3 text-center">
+
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading text-center">
+                        <h4>Editar Contraseña</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group" style="text-align: left">
+                            <label for="current_pwd">Contraseña Actual:</label>
+                            <input type="password" class="form-control" id="current_pwd">
+                        </div>
+                        <div class="form-group" style="text-align: left">
+                            <label for="new_pwd">Nueva Contraseña:</label>
+                            <input type="password" class="form-control" id="new_pwd">
+                        </div>
+                        <div class="form-group" style="text-align: left">
+                            <label for="new_pwd2">Nueva Contraseña:</label>
+                            <input type="password" class="form-control" id="new_pwd2">
+                        </div>
+                        <button id="btnEditPassword" class="btn btn-warning w-100">Guardar Cambios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="borrar-usuario" class="container-fluid ">
+    <div class="container bg-1 text-center">
+
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading text-center">
+                        <h4>Borrar Usuario</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group" style="text-align: left">
+                            <label for="pwd_delete">Contraseña:</label>
+                            <input type="password" class="form-control" id="pwd_delete">
+                        </div>
+                        <button id="btnDeleteUser" class="btn btn-danger w-100">Borrar Usuario</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="miperfil" class="container-fluid">
+    <div class="container bg-1 text-center">
+        <h1>Mi Perfil</h1>
+        <div class="row">
+            <div class="col-sm-4">
+
+                <p id="usuario-miperfil" ></p>
+
+            </div>
+            <div class="col-sm-4">
+
+                <p id="mail-miperfil" ></p>
+
+            </div>
+            <div class="col-sm-4">
+
+                <p id="contra-miperfil" ></p>
+
+            </div>
+            <div class="col-sm-4">
+
+                <p id="points-miperfil" ></p>
+
+            </div>
+            <div class="col-sm-4">
+
+                <p id="eurillos-miperfil" ></p>
+
+            </div>
+            <div class="col-sm-4">
+
+                <p id="avatar-miperfil" ></p>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="tienda" class="container-fluid">
+    <div class="container bg-1 text-center">
+        <h2>Operación Rempálago Tienda</h2>
+        <p id="saldo" ></p>
+        <div id="productos" class="tienda_productos">
+        </div>
+    </div>
+</div>
+
+<div id="test" class="jumbotron text-center">
+
+    <h1>Operación Rempálago</h1>
+
+    <p>El mejor juego.</p>
+    <p>El mejor juego.</p>
+    <p>El mejor juego.</p>
+    <p>El mejor juego.</p>
+    <p>El mejor juego.</p>
+    <p>El mejor juego.</p>
+    <p>El mejor juego.</p>
+    <p>El mejor juego.</p>
+    <p>El mejor juego.</p>
+
+
+
+</div>
+
+<div class="container mt-3">
+    <div class="alert" role="alert" id="miAlerta" style="display: none;">
+
+    </div>
+</div>
+
+</html>

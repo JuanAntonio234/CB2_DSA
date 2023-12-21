@@ -1,0 +1,107 @@
+body{
+  background-color: #f4511e;
+  margin:0;
+  padding: 0;
+}
+.jumbotron {
+    background-color: #f4511e;
+    color: #fff;
+    margin: 0px 0;
+    padding: 5px 25px;
+
+   }
+   .bg-1{
+    background-color: #f4511e;
+    color: #fff;
+    margin-top: 50px;
+    padding: 20px 25px;
+
+   }
+   .bg-2{
+       background-color: #f4511e;
+       color: #000;
+       margin-top: 50px;
+       padding: 20px 25px;
+
+   }
+
+   .form-group {
+    margin-bottom:15px;
+    margin-top:15px;
+    background-color: #fff;
+    color: #000;
+   }
+   .form-group label{
+    color: #000;
+
+    margin-bottom: 5px;
+   }
+   .form-group input{
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+   }
+   .form-group .error-message{
+    color:red;
+   }
+   .form-container{
+    max-width:400px;
+    margin: 50px auto 20px;
+    padding:10px 20px;
+    border-radius: 5px;
+
+    border-radius: 5px;
+   }
+
+   .bt-1 {
+   padding: 10px 25px;
+   margin: 7px 0;
+   /*width:100px;*/
+   }
+    .pull-right {
+    float: right !important;
+  }
+.navbar {
+margin-bottom: 0;
+background-color: #f4511e;
+z-index: 9999;
+border: 0;
+font-size: 12px !important;
+line-height: 1.42857143 !important;
+letter-spacing: 4px;
+border-radius: 0;
+}
+
+.navbar li a, .navbar .navbar-brand {
+color: #fff !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+color: #f4511e !important;
+background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+border-color: transparent;
+color: #fff !important;
+}
+
+#registro {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+ }
+
+ .custom-row-margin{
+
+   }
+
+#miAlerta {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+
+}
