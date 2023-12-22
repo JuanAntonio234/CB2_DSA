@@ -28,6 +28,10 @@ public class MainMenu extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    public void onClick(View view){
+        Intent intent =new Intent(this, MensajesSistemas.class);
+        startActivity(intent);
+    }
     public void onStartGameClick(View view){
 
     }
