@@ -56,4 +56,10 @@ public interface GameManager {
     public void increaseHealth(String jugadorUsername, int health);
     public void increaseSpeed(String jugadorUsername, int speed);
     public void invisibility(String jugadorUsername);
+
+    //Mensajes Manager
+    public int mensajesSize();
+    public Mensaje addMensaje(Mensaje mensaje);
+
+    public List<Mensaje> getAllMensajes();
 }

@@ -3,6 +3,7 @@ package edu.upc.dsa;
 import java.util.*;
 import edu.upc.dsa.exceptions.*;
 import edu.upc.dsa.models.*;
+import edu.upc.dsa.services.MensajesService;
 import org.apache.log4j.Logger;
 import edu.upc.dsa.util.Verificar;
 
@@ -15,6 +16,7 @@ public class GameManagerImpl implements GameManager {
     protected List<Avatar> avatares;
     protected List<Mapa> mapas;
     protected List<Tienda> productos;
+    private List<Mensaje> mensajes;
 
     final static Logger logger = Logger.getLogger(GameManagerImpl.class);
     private GameManagerImpl() {
@@ -23,6 +25,7 @@ public class GameManagerImpl implements GameManager {
         this.avatares = new LinkedList<>();
         this.mapas = new LinkedList<>();
         this.productos = new LinkedList<>();
+        this.mensajes=new ArrayList<>();
     }
 
     public static edu.upc.dsa.GameManager getInstance() {
@@ -77,6 +80,8 @@ public class GameManagerImpl implements GameManager {
         else{
             this.jugadores.put(jugador.getUsername(), jugador);
             logger.info("new Jugador added");
+            Mensaje mensaje = new Mensaje("Nuevo jugador agregado: " + jugador.getUsername());
+            addMensaje(mensaje);
             return jugador;
         }
     }
@@ -97,6 +102,8 @@ public class GameManagerImpl implements GameManager {
         } else if (j.getPassword().equals(password)){
             logger.info("Login del jugador " + username);
             respuesta.setSuccess(true);
+            Mensaje mensaje = new Mensaje("Se ha logueado: " + j.getUsername());
+            addMensaje(mensaje);
             return respuesta;
         } else{
             logger.info("Usuario o contraseña errónea");
@@ -129,6 +136,8 @@ public class GameManagerImpl implements GameManager {
             logger.info("El usuario " + username + " quiere cambiar su nombre a " + newUsername);
             logger.info("El usuario cambió su username a " + newUsername);
             r.setSuccess(true);
+            Mensaje mensaje = new Mensaje("El jugador:"+username+"ha cambiado su nombre a: " + newUsername);
+            addMensaje(mensaje);
             return r;
 
         }else{
@@ -171,6 +180,8 @@ public class GameManagerImpl implements GameManager {
             logger.info("El usuario " + j.getUsername() +" quiere borrar su perfil");
             logger.info("El usuario borró la cuenta");
             respuesta.setSuccess(true);
+            Mensaje mensaje = new Mensaje("El jugador:"+username+"ya no existe");
+            addMensaje(mensaje);
             return respuesta;
         }
     }
@@ -264,6 +275,9 @@ public class GameManagerImpl implements GameManager {
         else{
             this.productos.add(producto);
             logger.info("new producto added");
+            Mensaje mensaje = new Mensaje("Nuevo producto agregado: " + producto.getNombre());
+            mensajes.add(mensaje);
+
             return producto;
         }
     }
@@ -333,6 +347,8 @@ public class GameManagerImpl implements GameManager {
             for (Tienda p : this.productos) {
                 if (p.getNombre().equals(producto.getNombre())) {
                     this.productos.remove(i);
+                    Mensaje mensaje = new Mensaje("El producto:"+producto+" ya no existe " );
+                    addMensaje(mensaje);
                     return this.productos;
                 }
                 i++;
@@ -362,6 +378,8 @@ public class GameManagerImpl implements GameManager {
                     avatar.setDamg(damg);
                     encontrado = true;
                     logger.info("El jugador " + jugadorUsername + " ha incrementado su daño");
+                    Mensaje mensaje = new Mensaje("El jugador " + jugadorUsername + " ha incrementado su daño");
+                    addMensaje(mensaje);
                 }
             }
         }else{
@@ -381,6 +399,8 @@ public class GameManagerImpl implements GameManager {
                     int hlth = avatar.getHealth() + health;
                     avatar.setHealth(hlth);
                     logger.info("El jugador " + jugadorUsername + " ha incrementado su vida");
+                    Mensaje mensaje = new Mensaje("El jugador " + jugadorUsername + " ha incrementado su vida");
+                    addMensaje(mensaje);
                     encontrado = true;
                 }
             }
@@ -402,6 +422,8 @@ public class GameManagerImpl implements GameManager {
                     avatar.setSpeed(spd);
                     encontrado = true;
                     logger.info("El jugador " + jugadorUsername + " ha incrementado su velocidad");
+                    Mensaje mensaje = new Mensaje("El jugador " + jugadorUsername + " ha incrementado su velocidad");
+                    addMensaje(mensaje);
                 }
             }
         }else{
@@ -517,10 +539,25 @@ public class GameManagerImpl implements GameManager {
         }
         this.avatares.add(avatar);
         logger.info("new Avatar added");
+
         return avatar;
     }
 
     public Avatar addAvatar(String nombre, int idArma, int health, int damg, int speed) throws AvatarYaExisteException, FaltanDatosException{return this.addAvatar(new Avatar(nombre, idArma, health, damg, speed));}
 
     public List<Avatar> findAllAvatares(){return this.avatares;}
+
+    public int mensajesSize(){
+        int r=this.mensajes.size();
+        logger.info("Mensajes size"+r);
+        return r;
+    }
+    public List<Mensaje> getAllMensajes(){
+        return this.mensajes;
+    }
+    public Mensaje addMensaje(Mensaje mensaje){
+        mensajes.add(mensaje);
+        logger.info("Mensaje agregado");
+        return mensaje;
+    }
 }
